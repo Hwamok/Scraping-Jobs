@@ -8,7 +8,8 @@ import pymysql
 pymysql.install_as_MySQLdb()
 from sqlalchemy import create_engine
 
-dir = r"G:/내 드라이브/ColabNotes/DA_Scraping/"
+# User-Agent가 적힌 파일 불러오기  
+dir = r"User-Agent가 적힌 txt 파일의 경로"
 
 open_txt = open(dir + "user-agent.txt")
 for line in open_txt :
@@ -99,7 +100,7 @@ for keys in key_list :
 
 key_df = pd.DataFrame({"keyword" : key_collection})
 
-mysql = pymysql.connect(host = '127.0.0.1', port = 3306, user = 'Mok', password = '599125', db = "jobscraping")
+mysql = pymysql.connect(host = 'MySQL 호스트 주소', port = 3306, user = 'MySQL ID', password = 'MySQL Password', db = "데이터베이스명")
 cursor = mysql.cursor()
 try :
   cursor.execute("drop table jobkor_table ;")
